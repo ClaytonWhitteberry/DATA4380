@@ -22,12 +22,22 @@ total.
 
 ### 5
 
+I did sed 's/yes/1/g; s/no/0/g; s/,furnished/,1/g; s/unfurnished/0/g; s/semi-furnished/2/g' 
+Housing.csv > housing_encoded.csv.
+
 ### 6
 
 The command used to do this was cut -d ',' -f 1 --complement Mall_Customers.csv > mall.csv.
 
 ### 7
 
+To get the specified columns I did cut -d ',' -f 5,6,7,8 
+world_all_university_rank_and_rank_score.csv > uni_cols.csv. Then I did tr ',' '+' < uni_cols.csv > 
+uni_cols_plus.csv. I didn't figure out how to use the bc command to add the columns together from 
+here, though.
+
 ### 8
 
-
+I did sort -t ',' -n -k3 cancer_patient_data_sets.csv > cancer_dataset_sorted_age.csv. -t ',' 
+indicates that the separator is a comma. -n is used for numerical sorts. -k3 specifies 
+the columns to be sorted is the 3rd column which is the column for age.
