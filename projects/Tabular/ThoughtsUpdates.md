@@ -67,3 +67,19 @@ them. Understanding the other category better, understanding the EEG results whi
 understanding the Spectrogram results are the main hangups right now. The Spectrograms are 300x401 so I'm not 
 convinced they're actually useful. I may end up strictly using the EEG data and building features from that, but 
 I want to speak with someone before I decide that.
+
+I split the data as described in the February 20th update. The first split was taking rows where there was full 
+agreement amongst experts on the type of brain activity. The second split was taking rows where at least 8 experts 
+voted. I've decided not to make this split. The result was a major reduction in the number of rows for certain 
+categories. This wasn't a systematic reduction across all categories. Seizure and GRDA both saw their number of rows 
+drop from in the thousands to fewer than 30 rows. Other remained in the thousands. By far the most common number 
+of total votes for the whole dataset was 3. Eliminating this resulted in an unsystematic and significant reduction 
+in the amount of data available for certain categories.
+
+It would probably be fine to still do the split since the purpose was to get 5 sub IDs for each category while 
+meeting criteria designed to increase confidence in the consensus provided for those rows. The major 
+transformation of the overall data, however, makes me think it would be better to stick with the initial split and 
+pull 5 sub IDs from that.
+
+I reached out to one of the people my psychology professor mentioned and they said the EEG data is likely measured 
+in microvolts. They also mentioned Fourier transforms which I'll need to look up.
