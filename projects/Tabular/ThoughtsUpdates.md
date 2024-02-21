@@ -51,3 +51,19 @@ could be a number of different types of activity. Ranking all of those as though
 mistake. Splitting that data up with a clustering algorithm and then assigning ranks to those clusters based on the 
 strength of their association with acute seizures could be the best thing to do, but I'll have to visualize the data 
 first.
+
+#### February 21st
+
+Options for EDA to look into:
+
+Cosine similarity to compare data between electrode locations
+PCA because finding principle components for each target class' EEG data could help build features to use in a model
+
+Figuring out how to build features to use is going to be much of the work it seems.
+
+I reached out to my cognitive psychology professor for help understanding the paper and data, but she didn't have 
+a background with this type of data, so she directed me to other people in the department. I need to reach out to 
+them. Understanding the other category better, understanding the EEG results which don't seem to be in Hz, and 
+understanding the Spectrogram results are the main hangups right now. The Spectrograms are 300x401 so I'm not 
+convinced they're actually useful. I may end up strictly using the EEG data and building features from that, but 
+I want to speak with someone before I decide that.
