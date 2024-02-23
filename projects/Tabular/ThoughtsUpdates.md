@@ -83,3 +83,15 @@ pull 5 sub IDs from that.
 
 I reached out to one of the people my psychology professor mentioned and they said the EEG data is likely measured 
 in microvolts. They also mentioned Fourier transforms which I'll need to look up.
+
+#### February 23rd
+
+During lab I explained to Dr. Farbin what the process has been for figuring out my data. Talking to a psychology 
+professor has cleared up the EEG data for the most part. It's electrical readings at each electrode location and 
+measured in microvolts. The professor mentioned Fourier transforms and I looked up Fourier transforms and EEG data. 
+I found a short overview of methods for feature extraction from EEG data online. Fast Fourier Transform (FFT) was 
+one of the methods. I'm going to do the data visualization of the EEG readings over time for each column and compare 
+across classes as Dr. Farbin and I discussed. That bit will be done today. The data is split up and ready for me to 
+be able to do that. Afterwards, I'll be looking into how to implement FFT so that I can get that done this weekend 
+and do data visualization for that this weekend. Hoping to have that done by Monday so that I can go over machine 
+learning steps with Dr. Farbin then.
