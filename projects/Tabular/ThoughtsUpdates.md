@@ -112,3 +112,17 @@ think implementing FFT will go smoothly.
 I also think I may have overdone it with the way I split the data. For first steps I should have just pulled an EEG 
 for each class and plotted that data. I didn't need to pull 5 for each class. I just need to get some kind of idea of 
 what my data looks like.
+
+There was only one sub EEG that had missing data. It was lpd_sub1 and it had 4397 missing data points in each column. 
+Instead of filling in what is 43% of the data, I won't be using that sub EEG. I plotted comparisons for each column 
+of my sub2 EEGs across target classes and the seizure data is what stands out. Very high maxima and very low minima. 
+This may be part of why it's hard to see the other lines. Making note of how much the seizure data stands out and 
+then plotting the comparisons without the seizure data included may be the best next step. It may help to see any 
+differences in the rest of the data. 
+
+This trend with the seizure data held for every column other than the column for EKG data. EKG's are 
+electrocardiograms. They aren't collecting data from the brain like with the rest of the data included for these 
+EEG recordings. 
+
+I also found that matplotlib has a spectrogram function this weekend, so whenever I figure out what to do with that 
+data, I may be able to make use of that.
