@@ -95,3 +95,20 @@ across classes as Dr. Farbin and I discussed. That bit will be done today. The d
 be able to do that. Afterwards, I'll be looking into how to implement FFT so that I can get that done this weekend 
 and do data visualization for that this weekend. Hoping to have that done by Monday so that I can go over machine 
 learning steps with Dr. Farbin then.
+
+#### February 25th
+
+The goal this weekend has been to get my initial data visualization done. I can do that individually, but I ran into 
+an issue trying to plot the time series data for each column together on one plot to compare across classes of my 
+target variable. One issue might be that there is so much data that plotting the lines together makes some lines take 
+up so much space that other lines aren't visible. The other issue is I ran into missing data in some EEGs and not 
+others which I overlooked while I was caught up trying to figure out everything I'd been trying to figure out. 
+
+I'll get the missing data issue addressed and have more of the data visualization done soon. The other goal this 
+weekend was to get my Fast Fourier Transform implemented or at least start on that code. I didn't get there, but I 
+did find multiple resources explaining FFT and Scipy's FFT function, so once I've addressed this missing data I 
+think implementing FFT will go smoothly.
+
+I also think I may have overdone it with the way I split the data. For first steps I should have just pulled an EEG 
+for each class and plotted that data. I didn't need to pull 5 for each class. I just need to get some kind of idea of 
+what my data looks like.
