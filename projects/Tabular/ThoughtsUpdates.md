@@ -133,3 +133,38 @@ seizure activity. The lines are much more visible and it is much easier to see w
 types of brain activity. The next step is going to be to generate more plots like plotting pairs of activity types 
 and especially plotting each non-seizure type of activity vs. seizure activity. After that I think I'll look at 
 some summary statistics and then begin implementing the FFT.
+
+#### February 26th
+
+So far today, I've corrected some errors I noticed in my code. I had written code to randomly pull a set of EEG IDs 
+for each type of brain activity. Then I pulled those parquets and plotted that data. The problem with this is that 
+everytime the notebook is rerun it chooses new IDs. This meant I'd need to remember to rewrite the code I wrote to 
+read in those parquets. I fixed this by taking the randomly chosen IDs, creating a list of those specific IDs, and 
+then commenting out the code which randomly chooses IDs. This way my code has already chosen IDs at random for each 
+type of brain activity and going forward I will use that set of IDs without having to worry about it changing. 
+
+This resulted in different plot results and different missing data results. Three of the newly chose sub EEGs had 
+one row of missing data. I didn't plot these three sub EEGs. When I plotted the first set of sub EEGs, the LRDA data 
+stood out as extreme at every point in time. It was a wall of red for each column of the EEG. I compared the EEG data 
+here with the other LRDA sub EEGs and they were more in normal range. I'm thinking it might be the case that there was 
+an error inputting the data for this EEG. My guess is that it was input on the wrong scale and that rescaling this data 
+would produce results similar to the other sub EEGs for this type of brain activity. Testing this will be one of my 
+next steps.
+
+Another oddity was the 'other' category data for the first sub EEG. I produced a wall of blue in two plots. Fp1 and 
+Fp2. These signify the columns for prefrontal cortex electrode data. It's possible that there was an error reading 
+the electrical activity at these two electrodes since they're both prefrontal electrodes. It's also possible that 
+extreme values at these electrodes is common for the 'other' category.
+
+I plotted the first set of sub EEGs again, but used the 2nd LRDA sub EEG this time and it gave a much clearer picture. 
+GRDA stood out relative to the other types of brain activity in most of these plots. Sometimes it was a higher max 
+point and other times it was a lower min point. Sometimes it was both.
+
+Then I plotted each sub EEG from the first set (other than LRDA because of the possible scaling issue) against the 
+first seizure sub EEG to compare types of brain activity with seizure activity. The most closey associated seemingly 
+was LRDA activity. The paper linked on Kaggle does say LRDA is highly associated with acute seizures, but it also 
+says LPD is the highest associated with acute seizures. This was not the case in these plots, but that may hold up 
+when comparing more sub EEG data.
+
+As far as formatting goes, I need to rewrite the function I wrote to make these plots in order to put at least three 
+on a single line. Otherwise, all of these plots are going to take up way more space than necessary.
