@@ -126,3 +126,10 @@ EEG recordings.
 
 I also found that matplotlib has a spectrogram function this weekend, so whenever I figure out what to do with that 
 data, I may be able to make use of that.
+
+Last update for the day. I went back to reworked the function I used to generate my plots of the EEG readings over 
+time. I then plotted each column across types of brain activity to compare, but did so without the sub EEG for 
+seizure activity. The lines are much more visible and it is much easier to see where there are differences between 
+types of brain activity. The next step is going to be to generate more plots like plotting pairs of activity types 
+and especially plotting each non-seizure type of activity vs. seizure activity. After that I think I'll look at 
+some summary statistics and then begin implementing the FFT.
