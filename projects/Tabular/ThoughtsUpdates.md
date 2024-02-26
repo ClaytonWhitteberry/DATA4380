@@ -168,3 +168,30 @@ when comparing more sub EEG data.
 
 As far as formatting goes, I need to rewrite the function I wrote to make these plots in order to put at least three 
 on a single line. Otherwise, all of these plots are going to take up way more space than necessary.
+
+#### February 28th
+
+Fixed time series plot function. Was having an issue generating a good key for my plots. Feeding function a list 
+which varied in length and order meant that getting the category labels in a key was difficult, but using a map 
+instead fixed this.
+
+Spoke with tutor about feature extraction stuff and looked at my plots and have noticed some patterns. Seizure data 
+has more variability to it and has max and min points at seemingly consistent time intervals, so that is the sort of 
+thing that could be used for building features from the EEG data. Cross category correlations could also be useful. 
+Electrode location abnormalities like the prefrontal abnormalities in the 'other' data could be useful. This could be 
+found by taking the column correlations within category types. So, most of the data seems to show pretty consistent 
+activity across columns within activity types. However, the 'other' EEG I plotted showed abnormal data at Fp1 and Fp2. 
+This might be a trend for the 'other' data. Whether it happens due to error in the way results were recorded and that 
+leads to an 'other' vote because experts can't identify the activity type with incorrect data at multiple electrodes, 
+or this 'other' activity just is consistently different at specific electrodes. In both cases, that could be useful 
+information for building features.
+
+The ultimate goal here is to generate predictions of the activity type for the test EEG in probabilities. So, assigning 
+it a probability of being lrda, grda, lpd, gpd, seizure, or other.
+
+Today, I'm going to do more looking at EEG feature extraction material. Found some stuff on wavelet analysis which may 
+make the spectrogram data useful to me. Still considering not bothering with it because it's difficult to know how best 
+to treat it. Also saw methods for building statistical features like taking the mean of the raw signal and the standard 
+deviation of the raw signal as features. This is the sort of thing that may be useful. It could even get more specific 
+by looking at these numbers over specific time intervals since the seizure data at least seems to have patterns of max 
+and min points. These are the sorts of things I'll be looking at over the next few days.
