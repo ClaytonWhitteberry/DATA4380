@@ -195,3 +195,27 @@ to treat it. Also saw methods for building statistical features like taking the 
 deviation of the raw signal as features. This is the sort of thing that may be useful. It could even get more specific 
 by looking at these numbers over specific time intervals since the seizure data at least seems to have patterns of max 
 and min points. These are the sorts of things I'll be looking at over the next few days.
+
+#### February 29th
+
+I plotted comparisons of sub EEG data within types of activity. In other words, I plotted all of the LPD subsets I 
+chose against each other in order to see if there was much deviation between them. It also helped identify spots 
+where there are potential errors in the data.
+
+Yesterday, I watched 3Blue1Brown's visual introduction to fourier transforms. I'll upload notes I have from stuff 
+I've watched so that it doesn't take up too much space here. Basically, I realized that my spectrogram data is the 
+transformed EEG data. I also figured out how the spectrograms fit the EEGs to some extent. It isn't clear why a 10 
+minute spectrogram fits a 50 second EEG. Each row has a sub Spectrogram ID, though, and that tells me what set of 
+Spectrogram data fits what category of brain activity.
+
+The x axis, or columns, are labeled by location (left lateral, right lateral, left parasagittal, right parasagittal) 
+and frequency in Hz. 3B1B used audio signals as his example. The basic idea was that the transformed data would give 
+data close to zero except at specific frequencies which corresponded to the signals which were the component parts of 
+the overall signal. At those frequencies there would be a spike in the data. These spikes would be used to identify the 
+component parts of the overall signal. For instance, if you wanted to eliminate a high pitch signal from an audio 
+signal you would take the transform of the overall audio signal and find the spike at a high frequency. Eliminate that 
+then take the inverse FT of the edited transformed data. How this works with my spectrogram data which is 300x401 for 
+a 10 minute set, I don't know. But identifying the frequencies at which there are spikes in the data is probably the 
+goal for extracting a feature from this data.
+
+The ideas above about feature extraction from the EEG data beyond the FT I still intend to make use of.
