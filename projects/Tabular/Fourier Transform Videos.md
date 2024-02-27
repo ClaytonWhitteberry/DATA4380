@@ -1,0 +1,33 @@
+- 3B1B Visual Introduction
+	- classic example is decomposing frequencies from sound
+	- a microphone picks up what is essentially a sum of multiple different frequencies
+	- He starts with an example of a pure signal of 3 Hz
+		- he then plots this around an origin (looks like a flower kind of with each rise and fall of the signal composing a petal)
+		- he then changes the winding frequency (don't understand this) and the flower rotates
+		- as the flower rotates, the center of mass of the plotted signal changes
+		- he plots that center of mass on a separate plot over time and it looks sort of like its own wave, but it's more varied whereas the initial pure signal was consistent (hence, pure)
+	- He does this again with a pure signal of 2 Hz
+		- same sort of thing happens
+	- He then adds the 2 Hz signal to the 3 Hz signal and you no longer have a pure signal, but one that consists of peaks of varying heights and frequencies
+	- Is the plot showing how the center of mass changes over time showing this change in peak and frequency? Or is it showing something different? I think it must be showing something different since the thing that was impacting it before was changing the winding frequency and not the variability of peaks and valleys in the initial signal (there was no variability in the initial signal for the pure signals)
+	- the winding frequency is how many cycles per second (a cycle is from peak to peak? in the 2+3 example it starts at the high point at 0 seconds and then the first low peak is the first cycle; second cycle to second low peak; third cycle to the high peak which is the point where the signal started)
+	- the almost fourier transform of the 2 Hz signal results in a spike at a particular point
+	- the almost fourier transform of the 3 Hz signal results in a spike at a different particular point
+	- the almost FT of the 2+3 signal results in a spike at the 2 Hz spike point and at the 3 Hz spike point
+	- The sum of the pure signal almost FTs is the same as the almost FT of the 2+3 signal
+	- The transform of a pure frequency (3 Hz and 2 Hz as examples) is close to 0 everywhere but the spike
+		- Adding the transforms of two pure frequencies (or taking the sum of two pure frequencies and getting the transform of that) results in two spikes
+		- does this mean that you can tell how many pure frequencies make up a whole by looking at how many spikes there are in the transform?
+	- he uses the example of sound editing
+		- annoying high pitch you want removed from audio
+		- the overall audio is a sum of different frequencies
+		- when you take the transform of that overall audio, you'll get spikes at particular points representing the component parts of the overall audio
+		- the spike at some high frequency will be your high pitched audio
+		- if you were to smush that spike down you'd be left with what would be your overall audio without the high pitch frequency
+		- you can generate that with the inverse transform of the transform that was edited to remove the high pitch frequency's spike
+	- the center of mass x coordinate is only part of this
+		- talks about thinking in terms of a complex plane
+		- so you would have something like 0.20 - 0.13i
+	-  He lost me as soon as he started getting into the equation itself which includes integration
+	- The basic idea seems to be that doing the Fourier Transform may allow me to identify key component parts of the data and those could help me distinguish between types of brain activity in the case of EEG data
+- 
