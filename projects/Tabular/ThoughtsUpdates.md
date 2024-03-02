@@ -253,3 +253,15 @@ useful. Maybe I could plot a few rows to see how the data changes across the dif
 capture this for every time point in the 10 minute Spectrogram. Just identifying where the data spikes for 
 Spectrograms of each activity type would be useful. However, I may manage to accomplish this by messing around with 
 FFTs myself.
+
+#### March 3rd
+
+I did more time series plot grids. I didn't write a function for this because I wasn't sure how best to make one that 
+would have the versatility I needed in order to do all of the sorts of plots I wanted. I did rescale the sub EEG data 
+to better see how the data I was comparing differed. Before I had the issue of plots having different scales and that 
+made it more difficult to see differences between plots.
+
+The next step is to work with FFT stuff to see if I can find anything useful and also to mess around with the 
+spectrogram data to see if I can find anything useful there as well. As far as questions for moving forward, I 
+need to figure out what I think really stands out from the plots I've done. It seems like there's a bit of variability 
+even within activity types and I'm not sure what to do with that yet.
