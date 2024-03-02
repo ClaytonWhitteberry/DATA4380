@@ -219,3 +219,37 @@ a 10 minute set, I don't know. But identifying the frequencies at which there ar
 goal for extracting a feature from this data.
 
 The ideas above about feature extraction from the EEG data beyond the FT I still intend to make use of.
+
+#### March 2nd
+
+I managed to figure out how to do the sort of grid of plots that Dr. Farbin suggested I do in lab. They're 20x6. Each 
+row is an electrode location. Each column is an activity type. I set each column to a specific color to help visualize 
+the fact that each column is a different activity type. I need to rewrite this code as a function now because it will 
+be easier to do different sets of plots this way. I want to do these plots with different sub EEGs and I want to do 
+different comparisons with the same sort of grid. For example, a 20x5 grid where every non-seizure type is compared to 
+the seizure data. I had done that and also comparisons within activity types to see how much variability there was in 
+the data within each activity type. For example, I compared all 5 of the LRDA sub EEGs I had chosen. This is helpful 
+for finding potential outliers and also for identifying when a sub EEG is full of extreme data at each time point as 
+I've found for a few sub EEGs already.
+
+I'll want to get the function written today, and I think I also want to try rescaling the sub EEGs I've chosen to see 
+how that changes things. I don't want to mess with the distribution because that's important for identifying the 
+types of brain activity. I'll use the MinMaxScaler to avoid that. I think rescaling will clear up the issues I've had 
+with a few sub EEGs and also make the plot grid more useful because many of the plots have different scales for their 
+axes. This makes it more difficult to interpret.
+
+Tomorrow I want to mess around with FFT stuff like Dr. Farbin suggested I do. I also may try to figure out how to use 
+Matplotlib's plt.specgram function, but from the documentation it reads to me like it plots data after performing the 
+transformation itself and this wouldn't work for my spectrogram data because it's already been transformed.
+
+Another idea is to split the Spectrograms by location. There are 400 columns. 4 general locations. 100 columns for 
+each. The first 100 columns, for example, are all LL columns (left lateral). I'm not sure this is going to be helpful, 
+but the hope is to find a way to compare the data for each location because, just looking at the data for one 
+Spectrogram, the data for the first location looks very different from the data for the last location.
+
+The other idea with the Spectrogram data is to find a way to identify the frequencies at which there are spikes in the 
+data without having to plot a matrix of data that is 300x400. That would be too much and likely wouldn't be especially 
+useful. Maybe I could plot a few rows to see how the data changes across the different frequencies, but I wouldn't 
+capture this for every time point in the 10 minute Spectrogram. Just identifying where the data spikes for 
+Spectrograms of each activity type would be useful. However, I may manage to accomplish this by messing around with 
+FFTs myself.
