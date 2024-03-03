@@ -286,3 +286,17 @@ but for now the purpose is to see what percentage of rows contain missing data. 
 than x percentage of rows are missing data, I won't use that EEG. If less than that percentage are missing data, I'll 
 fill in the missing data with the column's mean. I think using the mean makes most sense with continuous data that has 
 such large dimensions.
+
+#### March 5th
+
+Dropped rows of data which had an EEG with at least 5% of its data missing. This ended up being 330 rows out of 
+106800 rows. The other EEGs with null values (723 in total) will have their null values replaced with the column 
+median. I wrote the function to do that. I may have to edit it slightly when it's time to put everything together, 
+but the function is written.
+
+I have more feature ideas and will get those added to that markdown. Next I plan to take in a few hundred sub EEGs of 
+each type and get what would be an average EEG for each activity type. That way I have data that might be more 
+representative of the data for that activity type. Looking at the comparison plots I did, there seems to be a some 
+signficant differences between individual sub EEGs even within activity type. Once I've got the averages I can 
+consider finding correlations for each sub EEG with each activity type average EEG and I can compare plots of the 
+average EEGs to see if anything stands out.
