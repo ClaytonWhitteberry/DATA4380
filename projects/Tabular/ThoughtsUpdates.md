@@ -265,3 +265,24 @@ The next step is to work with FFT stuff to see if I can find anything useful and
 spectrogram data to see if I can find anything useful there as well. As far as questions for moving forward, I 
 need to figure out what I think really stands out from the plots I've done. It seems like there's a bit of variability 
 even within activity types and I'm not sure what to do with that yet.
+
+#### March 4th
+
+Began working with Scipy's FFT function. I can take a column of EEG data and pass the FFT function that column's 
+data and it will return an array of the transformed values. In the documentation, I need to figure out exactly what 
+they're doing to plot the data. They use scipy.fft and scipy.fftfreq to get the x and y for their plot. It's the 
+fftfreq function that is tripping me up. Once I understand that, I can then plot the transformed data and see what it 
+looks like. In the example in their documentation the plot has two peaks between zero and 100 and is flat elsewhere. 
+These peaks are the sort of information I'm looking for in order to build features for doing classification. 
+
+Because I was a bit stuck, I began working on something else I had thought of yesterday. Whenever it is time to split 
+my data for training, valiidation, and testing, I am going to need a way to efficiently pull sub EEGs and sub 
+Spectrograms and then be able to pass those through functions which will check them for null values, extreme values, 
+etc. I will need to then pass the data through functions which will address those values in some way and functions 
+which will calculate my feature data for each sub EEG and sub Spectrogram. I wrote the function to take a row's EEG 
+ID and its start time for the sub EEG and return the sub EEG. I also wrote the function that will check the sub EEG 
+for null values and return whatever the max number of null values in a column is. I may change the way I've done this, 
+but for now the purpose is to see what percentage of rows contain missing data. I want to set a threshold where if more 
+than x percentage of rows are missing data, I won't use that EEG. If less than that percentage are missing data, I'll 
+fill in the missing data with the column's mean. I think using the mean makes most sense with continuous data that has 
+such large dimensions.
