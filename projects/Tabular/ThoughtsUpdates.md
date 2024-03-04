@@ -300,3 +300,38 @@ representative of the data for that activity type. Looking at the comparison plo
 signficant differences between individual sub EEGs even within activity type. Once I've got the averages I can 
 consider finding correlations for each sub EEG with each activity type average EEG and I can compare plots of the 
 average EEGs to see if anything stands out.
+
+#### March 6th
+
+I generated my average EEGs for each activity type today. After removing the rows of data with EEGs that had a 
+larger percentage of missing data, I split my training CSV by activity type. So I got 6 new dataframes with each one 
+having only the rows for a specific type of brain activity. I wrote a function that takes in one of those dataframes 
+and a specified number of rows, adds up the corresponding sub EEGs for those rows and divides by the total to give 
+me the average sub EEG for those rows. The goal was to get something more representative of the overall data for that 
+activity type.
+
+I plotted these EEGs in a grid like I did the sub EEGs I worked with before. There are some differences to make note 
+of. The signal for the seizure data tends to get larger over the course of the sub EEG recording. The GRDA signal 
+tends to get smaller after starting very large. The LPD signal tended to be more variable, but smaller differences 
+between high and low points over the course of the sub EEG recording.
+
+In the process of generating these average EEGs, I wrote a function that takes in a dataframe and a number of rows and 
+uses that information to get the sub EEG for a row, fills in missing values in that sub EEG with the column median, 
+and MinMaxScales the sub EEG. This will be useful when it comes time to pull sub EEGs to process for building my 
+training, validation, and testing sets. I'll just need to then pass the sub EEG through functions which calculate 
+feature data for the sub EEG.
+
+Lastly, I did more work on preparing to do feature extraction. For time domain features, I can take the mean and 
+variance of the raw signal. I can calculate skewness. I can calculate Kurtosis which measures how often outliers occur. 
+I can calculate Hjorth parameters. These are parameters often used in EEG feature extraction and analysis. They are 
+activity, mobility, and complexity if I am remembering that correctly. One other measure I could use is numpy's 
+peak to peak function. It isn't useful on the rescaled sub EEGs overall because it will return (1 - 0) for (Max - Min) 
+every time. However, if calculated along specific time intervals, this information could be useful. As mentioned with 
+the average sub EEGs, signals varied over time. Seizure signals got larger. GRDA signals got smaller. LPD signals 
+tended to be smaller than the signals for the other activity types over the course of the entire sub EEG recording. 
+Measuring peak to peak for every 2000 rows (10 seconds) could help differentiate between activity types.
+
+The next thing I want to do is take the FFT of these average EEGs and look at averages of column data within activity 
+types. It may end up being the case that I want to reduce the number of columns I have to work with for these EEGs. 
+If some columns are especially correlated with each other, I may be able to combine them in some way and reduce the 
+dimensions of the EEG data I'm working with.
