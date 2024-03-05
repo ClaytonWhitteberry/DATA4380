@@ -335,3 +335,21 @@ The next thing I want to do is take the FFT of these average EEGs and look at av
 types. It may end up being the case that I want to reduce the number of columns I have to work with for these EEGs. 
 If some columns are especially correlated with each other, I may be able to combine them in some way and reduce the 
 dimensions of the EEG data I'm working with.
+
+#### March 7th
+
+Corrected some code. Wrote a function that looked at every unique EEG, checked the activity type and then gathered 
+what activity type followed. So if the first sub EEG was LRDA, the function appended the activity type of the second 
+sub EEG. I did this for each activity type to see if their was a trend here. I'm going to do some visualization with 
+this data to get a better idea, but it didn't seem like there was much here.
+
+The other thing I did was looking into understanding the FFT function better. I was unclear on how to plot the results 
+and how to use the function. Do I just pass it a single column or the whole EEG? In the process of doing this, I found 
+a video explaining how to plot Scipy's FFT/DFT. I also found a number of other videos talking about using python to do 
+EEG signal processing. Someone recommended using Scipy's Welch function to calculate the power spectral density 
+instead. I'm unclear on what the sampling frequency for this is supposed to be. My guess is 200 because I have 200 rows 
+of data per second. That doesn't seem to line up with what is typical from looking around online. 
+
+I also found MNE which is a python package designed for EEG signal processing. I think I'm close to having features and 
+being able to test a model, but I have more work to do in order to understand these signal processing functions so that 
+I'm sure I'm passing them the right information.
