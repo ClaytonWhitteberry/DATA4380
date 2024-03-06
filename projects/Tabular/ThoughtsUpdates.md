@@ -353,3 +353,9 @@ of data per second. That doesn't seem to line up with what is typical from looki
 I also found MNE which is a python package designed for EEG signal processing. I think I'm close to having features and 
 being able to test a model, but I have more work to do in order to understand these signal processing functions so that 
 I'm sure I'm passing them the right information.
+
+#### March 10th
+
+Very brief update, the past couple of days I've spent more time learning how to implement functions for feature 
+extraction and begun a reformatted notebook which more closely matches the format of the one Dr. Farbin uploaded to 
+GitHub.
