@@ -359,3 +359,10 @@ I'm sure I'm passing them the right information.
 Very brief update, the past couple of days I've spent more time learning how to implement functions for feature 
 extraction and begun a reformatted notebook which more closely matches the format of the one Dr. Farbin uploaded to 
 GitHub.
+
+#### March 12th
+
+I came up with potential peak to peak features based on time interval of the EEG recording and based on electrode 
+location. I then plotted this data by activity type in histograms to get an idea of how the distribution differed 
+by activity type. I'll work on new features tomorrow, reformat the last plots I did in a grid, and try to resolve 
+whatever is giving me that big block of warnings when I try to rescale sub EEGs.
