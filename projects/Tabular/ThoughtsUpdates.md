@@ -366,3 +366,24 @@ I came up with potential peak to peak features based on time interval of the EEG
 location. I then plotted this data by activity type in histograms to get an idea of how the distribution differed 
 by activity type. I'll work on new features tomorrow, reformat the last plots I did in a grid, and try to resolve 
 whatever is giving me that big block of warnings when I try to rescale sub EEGs.
+
+#### March 13th
+
+I fixed the issue that was causing the big block of warnings when I tried to fill in null values in sub EEGs.
+
+I also did some work to better understand how to implement ICA. I'll hopefully be able to get that started tomorrow. 
+Today, because I wasn't entirely sure how to work with ICA (main issue is figuring out how to scale my data and the 
+info I found about this online wasn't the most helpful), I worked with scipy's welch function to calculate power 
+spectral density. I ran this on each column of a sub EEG for each of my 6 target classes. Then I plotted the results. 
+I haven't generated feature data from this yet and need to figure out how I want to go about this. I also need to 
+verify that the results came out the way they're supposed to. I'm getting spikes in my plots at 40, 60, 80, and 100 Hz. 
+There are clear differences in the patterns for each target class in the sub EEGs I plotted, but I also need to check 
+that this holds up for more than just these individual sub EEGs.
+
+One major benefit of this data if everything holds up is that the seizure results were the most different. If that 
+holds for the rest of the seizure data, then this will at the very least be helpful in identifying seizure activity. 
+
+The plan for tomorrow is to verify that these results are what I want and that they hold up with more of the data. If 
+they do, then I can use them to build features. The next step would be to implement ICA and use the resulting 
+components as features. Once I've done this I can run a model with my feature data and then do feature selection to 
+improve results and reduce the dimensionality of my feature data.
