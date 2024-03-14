@@ -387,3 +387,12 @@ The plan for tomorrow is to verify that these results are what I want and that t
 they do, then I can use them to build features. The next step would be to implement ICA and use the resulting 
 components as features. Once I've done this I can run a model with my feature data and then do feature selection to 
 improve results and reduce the dimensionality of my feature data.
+
+#### March 14th
+
+The main thing I did today was run ICA on a sub EEG for each activity type and then plot the results to compare. I 
+left the component number default so it returned 20 components. One for each column of my sub EEGs. I will likely want 
+to reduce this number. Some of the plots for the components seem fairly similar, so one way to reduce this number could 
+be to get ICA data for a large set of sub EEGs and then find the column correlations across all of that data. Can treat 
+highly correlated component data as a single component run the ICA again with fewer components. I'll look to see if 
+there are different ways of finding the optimal number of components, though.
