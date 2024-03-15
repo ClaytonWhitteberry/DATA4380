@@ -396,3 +396,21 @@ to reduce this number. Some of the plots for the components seem fairly similar,
 be to get ICA data for a large set of sub EEGs and then find the column correlations across all of that data. Can treat 
 highly correlated component data as a single component run the ICA again with fewer components. I'll look to see if 
 there are different ways of finding the optimal number of components, though.
+
+#### March 16th
+
+I've tried figuring out how to do dimensionality reduction. I was going to stack my EEG data and run PCA that way, but 
+anything more than 500 EEGs kills the kernel. I can try averaging a bunch of EEGs, running PCA to find what might be an 
+optimal number of components and then use that number of components to run PCA on the sub EEGs I use to calculate 
+feature data for my model. The other option is to look at column correlations for a large number of EEGs and combine 
+highly correlated columns.
+
+The reason for this is running Welch to get PSD data is done for each individual column. Band power analysis will make 
+use of 4 different frequency ranges, so I'd get 4 numbers for each column. That's 80 features. Reducing that by 
+reducing the number of columns in my EEG data would be ideal. Once I've done that, I can get my peak to peak data, 
+my PSD feature data, and maybe some data from doing ICA. This isn't typically how EEG analysis is done, but I've hit a 
+wall everytime I've tried something from examples I've looked at and part of the problem is they all use EEG data that 
+is structured differently than mine and are trying to accomplish things that aren't quite what I'm trying to 
+accomplish. For example, the ICA example I saw had EEG data with 64 columns, there weren't 17k separate EEGs in 
+parquets, and the goal he had was to remove an artifact in the data which came from people blinking because that messes 
+with the signal.
